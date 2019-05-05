@@ -39,64 +39,79 @@ module rgb_testbench;
 		
 		// Wait 4 ns for first rising clk
 		#4; //t = 4
-        		
+      Mode = 1'b0;
+		#6;
 		//Test1: Initial
 		if ((RGBout == 24'b100000001000001000000010)) begin $display("Test1: Passed"); testCounter = testCounter + 1; end
 		else $display("Test1 failed.");
 		#3; // Wait for low clock to change inputs.
 		//Initialize Test 2
 		RGBin = 24'b100000011100001101000010;
-		Op = 3'b001;			
+		Op = 3'b001;
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b101001111110011111100110)) begin $display("Test2: Passed"); testCounter = testCounter + 1; end
 		else $display("Test2 failed.");
 		#3; // Wait for low clock to change inputs.
 		//Initialize Test 3
 		RGBin = 24'b100000011100001101000010;
 		Op = 3'b010;			
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b001001110110010111100100)) begin $display("Test3: Passed"); testCounter = testCounter + 1; end
 		else $display("Test3 failed.");
 		#3; // Wait for low clock to change inputs.		
 		//Initialize Test 4
 		RGBin = 24'b100000011100001101000010;
 		Op = 3'b011;			
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b111111111111111111101000)) begin $display("Test4: Passed"); testCounter = testCounter + 1; end
 		else $display("Test4 failed.");
 		#3; // Wait for low clock to change inputs.		
 		//Initialize Test 5
 		RGBin = 24'b100000011100001101000010;
 		Op = 3'b100;			
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b000000000001110100000000)) begin $display("Test5: Passed"); testCounter = testCounter + 1; end
 		else $display("Test5 failed.");
 		#3; // Wait for low clock to change inputs.		
 		//Initialize Test 6
 		RGBin = 24'b100000011100001101000010;
 		Op = 3'b101;			
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b100000101100010001000011)) begin $display("Test6: Passed"); testCounter = testCounter + 1; end
 		else $display("Test6 failed.");
 		#3; // Wait for low clock to change inputs.		
 		//Initialize Test 7
 		RGBin = 24'b100000011100001101000010;
 		Op = 3'b110;			
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b100000001100001001000001)) begin $display("Test7: Passed"); testCounter = testCounter + 1; end
 		else $display("Test7 failed.");
 		#3; // Wait for low clock to change inputs.		
 		//Initialize Test 8
 		RGBin = 24'b100000011100001101000010;
 		Op = 3'b111;			
+		Mode = 1'b1;
 		#3; // Wait for clk rise to check inputs.
-		
+		Mode = 1'b0;
+		#6;
 		if ((RGBout == 24'b000000111000011110000100)) begin $display("Test8: Passed"); testCounter = testCounter + 1; end
 		else $display("Test8 failed.");
 		#3; // Wait for low clock to change inputs.		
