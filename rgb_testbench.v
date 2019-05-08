@@ -198,9 +198,30 @@ module rgb_testbench;
 		if ((RGBout == 24'b110001101100101011001110)) begin $display("Test16: Passed"); testCounter = testCounter + 1; end
 		else $display("Test16 failed.");
 		#3; // Wait for low clock to change inputs.	
+		    //Initialize Test 17
+		RGBin = 24'b011100100111011001100010;
+		Op = 3'b011;			
+		Mode = 1'b1;
+		Address = 4'b0000;
+		#6;
+		RGBin = 24'b011110010110001101111001;
+		Op = 3'b101;
+		Address = 4'b0101;
+		#3; // Wait for clk rise to check inputs.
+		Mode = 1'b0;
+		#6;
+		if ((RGBout == 24'b011110100110010001111010))
+        begin
+			Address = 4'b0000;
+			#6;
+			if((RGBout == 24'b011100100111011001100010)) begin $display("Test17: Passed"); testCounter = testCounter + 1; end
+			else $display("Test17 failed.");
+		end
+		else $display("Test17 failed.");
+		#3; // Wait for low clock to change inputs.	
 
 
-		$display("Test results: %d / 16", testCounter);
+		$display("Test results: %d / 17", testCounter);
 		
 		/* ADD ADDITIONAL TEST CASES HERE */
 		
